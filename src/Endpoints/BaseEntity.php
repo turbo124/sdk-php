@@ -60,6 +60,11 @@ class BaseEntity
         return $this->ninja->send("PUT", "{$this->uri}/{$entity_id}", $query);
     }
 
+    public function model()
+    {
+        return $this->ninja->send("GET", "{$this->uri}/create");
+    }
+    
     public function create(array $entity, array $includes = [])
     {
         $query = ['form_params' => $entity, 'query' => $includes];
