@@ -12,30 +12,31 @@
 namespace InvoiceNinja\Sdk;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Exception\RequestException;
-use InvoiceNinja\Sdk\Endpoints\BankIntegrations;
-use InvoiceNinja\Sdk\Endpoints\BankTransactions;
+use InvoiceNinja\Sdk\Endpoints\Tasks;
+use InvoiceNinja\Sdk\Endpoints\Users;
+use InvoiceNinja\Sdk\Endpoints\Quotes;
 use InvoiceNinja\Sdk\Endpoints\Clients;
-use InvoiceNinja\Sdk\Endpoints\Companies;
 use InvoiceNinja\Sdk\Endpoints\Credits;
-use InvoiceNinja\Sdk\Endpoints\ExpenseCategories;
+use InvoiceNinja\Sdk\Endpoints\Statics;
+use InvoiceNinja\Sdk\Endpoints\Vendors;
 use InvoiceNinja\Sdk\Endpoints\Expenses;
-use InvoiceNinja\Sdk\Endpoints\GroupSettings;
 use InvoiceNinja\Sdk\Endpoints\Invoices;
 use InvoiceNinja\Sdk\Endpoints\Payments;
 use InvoiceNinja\Sdk\Endpoints\Products;
 use InvoiceNinja\Sdk\Endpoints\Projects;
-use InvoiceNinja\Sdk\Endpoints\PurchaseOrders;
-use InvoiceNinja\Sdk\Endpoints\Quotes;
-use InvoiceNinja\Sdk\Endpoints\RecurringInvoices;
-use InvoiceNinja\Sdk\Endpoints\Statics;
-use InvoiceNinja\Sdk\Endpoints\Subscriptions;
-use InvoiceNinja\Sdk\Endpoints\Tasks;
 use InvoiceNinja\Sdk\Endpoints\TaxRates;
-use InvoiceNinja\Sdk\Endpoints\Vendors;
-use InvoiceNinja\Sdk\Endpoints\Users;
+use GuzzleHttp\Exception\GuzzleException;
+use InvoiceNinja\Sdk\Endpoints\Companies;
+use InvoiceNinja\Sdk\Endpoints\Locations;
+use GuzzleHttp\Exception\RequestException;
+use InvoiceNinja\Sdk\Endpoints\GroupSettings;
+use InvoiceNinja\Sdk\Endpoints\Subscriptions;
 use InvoiceNinja\Sdk\Exceptions\ApiException;
+use InvoiceNinja\Sdk\Endpoints\PurchaseOrders;
+use InvoiceNinja\Sdk\Endpoints\BankIntegrations;
+use InvoiceNinja\Sdk\Endpoints\BankTransactions;
+use InvoiceNinja\Sdk\Endpoints\ExpenseCategories;
+use InvoiceNinja\Sdk\Endpoints\RecurringInvoices;
 
 class InvoiceNinja
 {
@@ -129,6 +130,7 @@ class InvoiceNinja
     	$this->purchase_orders = new PurchaseOrders($this);
     	$this->bank_transactions = new BankTransactions($this);
     	$this->bank_integrations = new BankIntegrations($this);
+		$this->locations = new Locations($this);
     	
     	return $this;
     }
